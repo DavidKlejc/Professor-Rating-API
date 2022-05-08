@@ -1,2 +1,2 @@
-db/dbconfig.js
+server/db/dbconfig.js
 node_modules
