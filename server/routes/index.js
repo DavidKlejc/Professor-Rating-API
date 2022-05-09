@@ -3,9 +3,13 @@ const { getISQData, getRating } = require('../db');
 const router = express.Router();
 
 router.get('/ratings', (req, res) => {
-    getISQData.then((result) => {
-        res.json(result);
-    });
+    try {
+        getISQData.then((result) => {
+            res.json(result);
+        });
+    } catch(error) {
+        throw error;
+    }
 });
 
 router.get('/:course/:professorLastName', (req, res) => {
