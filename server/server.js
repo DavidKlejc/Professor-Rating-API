@@ -11,6 +11,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/myapi', apiRouter);
 
-app.listen(3306, () => {
+app.listen(port, () => {
     console.log(`Listening on port http://localhost:${port}`);
 });
