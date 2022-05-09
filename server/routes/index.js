@@ -1,13 +1,17 @@
 const express = require('express');
-const { queryDB } = require('../db');
+const { getISQData, getRating } = require('../db');
 const router = express.Router();
 
 router.get('/ratings', (req, res) => {
-    queryDB.then((result) => {
+    getISQData.then((result) => {
         res.json(result);
     });
 });
 
-// TODO: Implement route for /course/professorLastName
+router.get('/:course/:professorLastName', (req, res) => {
+    getRating(req.params.course, req.params.professorLastName).then((result) => {
+        res.json(result);
+    });
+});
 
 module.exports = router;
