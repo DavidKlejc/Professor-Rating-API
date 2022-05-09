@@ -9,9 +9,13 @@ router.get('/ratings', (req, res) => {
 });
 
 router.get('/:course/:professorLastName', (req, res) => {
-    getRating(req.params.course, req.params.professorLastName).then((result) => {
-        res.json(result);
-    });
+    try {
+        getRating(req.params.course, req.params.professorLastName).then((result) => {
+            res.json(result);
+        });
+    } catch(error) {
+        throw error;
+    }
 });
 
 module.exports = router;
