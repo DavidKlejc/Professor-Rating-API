@@ -9,7 +9,7 @@ let port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/myapi', apiRouter);
+app.use('/', apiRouter);
 
 app.listen(port, () => {
     console.log(`Listening on port http://localhost:${port}`);
