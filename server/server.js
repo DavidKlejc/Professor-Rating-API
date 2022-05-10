@@ -8,7 +8,12 @@ let port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+    cors({
+        origin: "*",
+    })
+);
+
 app.use('/', apiRouter);
 
 app.listen(port, () => {
