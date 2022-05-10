@@ -1,9 +1,8 @@
 const express = require('express');
 const { getISQData, getRating } = require('../db');
 const router = express.Router();
-const cors = require('cors');
 
-router.get('/ratings', cors(), (req, res) => {
+router.get('/ratings', (req, res, next) => {
     try {
         getISQData.then((result) => {
             res.json(result);
@@ -13,7 +12,7 @@ router.get('/ratings', cors(), (req, res) => {
     }
 });
 
-router.get('/:course/:professorLastName', cors(), (req, res) => {
+router.get('/:course/:professorLastName', (req, res, next) => {
     try {
         getRating(req.params.course, req.params.professorLastName).then((result) => {
             res.json(result);
