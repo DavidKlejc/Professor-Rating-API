@@ -1,6 +1,7 @@
 const express = require('express');
 const { getISQData, getRating } = require('../db');
 const router = express.Router();
+const cors = require('cors');
 
 router.get('/ratings', cors(), (req, res) => {
     try {
