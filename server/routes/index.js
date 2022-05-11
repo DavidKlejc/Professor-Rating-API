@@ -15,6 +15,7 @@ router.get('/ratings', (req, res) => {
 router.get('/:course/:professorLastName', (req, res) => {
     try {
         getRating(req.params.course, req.params.professorLastName).then((result) => {
+            res.addHeader("Access-Control-Allow-Origin", "*");
             res.json(result);
         });
     } catch(error) {
