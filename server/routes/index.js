@@ -17,7 +17,7 @@ router.get('/ratings', (req, res, next) => {
     next();
 });
 
-router.get('/:course/:professorLastName', (req, res) => {
+router.get('/:course/:professorLastName', (req, res, next) => {
     try {
         getRating(req.params.course, req.params.professorLastName).then((result) => {
             res.json(result);
@@ -25,6 +25,7 @@ router.get('/:course/:professorLastName', (req, res) => {
     } catch(error) {
         throw error;
     }
+    next();
 });
 
 module.exports = router;
