@@ -1,7 +1,13 @@
 const express = require('express');
-const cors = require('../cors');
+// const cors = require('../cors');
 const { getISQData, getRating } = require('../db');
 const router = express.Router();
+const cors = require('cors');
+
+const corsOptions = {
+    origin: 'https://banregister.unf.edu',  // Value returned to Access-Allow-Control-Origin header
+    optionsSuccessStatus: 200
+};
 
 router.get('/ratings', cors(corsOptions), (req, res) => {
     try {
