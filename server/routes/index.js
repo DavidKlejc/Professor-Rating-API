@@ -1,7 +1,7 @@
 const express = require('express');
 const { getISQData, getRating } = require('../db');
 const router = express.Router();
-const cors = require('./cors');
+// Maybe I have to import the cors module here too
 
 router.get('/ratings', cors(corsOptions), (req, res) => {
     try {
