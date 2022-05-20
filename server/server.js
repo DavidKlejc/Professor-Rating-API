@@ -1,7 +1,7 @@
+const corsMiddleware = require('./cors');
 const express = require('express');
 const apiRouter = require('./routes');
 const bodyParser = require('body-parser');
-const corsMiddleware = require('./cors');
 const app = express();
 
 require('dotenv').config();
