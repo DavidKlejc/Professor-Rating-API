@@ -1,7 +1,7 @@
 const express = require('express');
 const { getISQData, getRating } = require('../db');
 const router = express.Router();
-const corsMiddleware = require('./cors');
+const corsMiddleware = require('../cors');
 
 router.get('/ratings', corsMiddleware(corsOptions), (req, res) => {
     try {
