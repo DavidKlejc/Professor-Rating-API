@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
 const apiRouter = require('./routes');
 const bodyParser = require('body-parser');
+const app = express();
 
 const corsOptions = {
     origin: 'https://banregister.unf.edu',  // Value returned to Access-Allow-Control-Origin header
