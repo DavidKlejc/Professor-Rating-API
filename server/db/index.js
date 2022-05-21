@@ -10,27 +10,26 @@ let checkConnection = () => {
     } else {
         connection = mysql.createConnection(dbInfo);
     }
+    connection.connect();
 }
 
+checkConnection();
+
 const getISQData = new Promise((resolve, reject) => {
-    checkConnection();
-    connection.connect();
     connection.query(`SELECT * FROM ISQ_DATA`, (err, result) => {
-        connection.end();
         return err ? reject(err) : resolve(result);
     });
 }); 
 
 const getRating = (courseName, professorsLastName) => {
     return new Promise((resolve, reject) => {
-        checkConnection();
-        connection.connect();
         connection.query(`SELECT Rating FROM ISQ_DATA WHERE Course = ? AND ProfessorName = ?`, [courseName, professorsLastName], (err, result) => {
-            connection.end();
             return err ? reject(err) : resolve(result);
         });
     });
 }
+
+connection.end();
 
 module.exports = {
     getISQData: getISQData,
