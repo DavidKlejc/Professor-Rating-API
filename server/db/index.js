@@ -16,7 +16,7 @@ const getISQData = new Promise((resolve, reject) => {
     checkConnection();
     connection.connect();
     connection.query(`SELECT * FROM ISQ_DATA`, (err, result) => {
-        // connection.end();
+        connection.end();
         return err ? reject(err) : resolve(result);
     });
 }); 
@@ -26,7 +26,7 @@ const getRating = (courseName, professorsLastName) => {
         checkConnection();
         connection.connect();
         connection.query(`SELECT Rating FROM ISQ_DATA WHERE Course = ? AND ProfessorName = ?`, [courseName, professorsLastName], (err, result) => {
-            // connection.end();
+            connection.end();
             return err ? reject(err) : resolve(result);
         });
     });
